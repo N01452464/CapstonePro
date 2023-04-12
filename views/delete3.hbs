@@ -1,0 +1,58 @@
+<head>
+<style>
+form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+</style>
+</head>
+
+<form method="POST" action="/api/vpsearch/delete">
+  <h2>DELETE QUESTIONS</h2>
+  <label for="question_id">Select a question to delete:</label>
+  <select name="question_id" id="question_id">
+    <option value="">--Select a question--</option>
+    {{#each data}}
+    {{#each this.vquestions}}
+      <option value="{{this.question_id}}">{{this.question}}</option>
+    {{/each}}
+    {{/each}}
+  </select>
+  <br><br> 
+  <input type="submit" value="DELETE">
+</form>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questions Data</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        text-align: center;
+        color: #4caf50;
+        margin-top: 50px;
+      }
+
+      table {
+        margin: 50px auto;
+        border-collapse: collapse;
+        width: 80%;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #ddd;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        width: 80%;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #2e8b57;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Questions Data</h1>
+    <table border="1" width="100%">
+      <thead>
+        <tr>
+          <th>Question ID</th>
+          <th>Question</th>
+          <th>Options</th>
+          <th>Answer Type</th>
+          <th>Yes Question Index</th>
+          <th>No Question Index</th>
+          <th>Category Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+        {{#each this.oquestions}}
+        <tr>
+          <td>{{this.question_id}}</td>
+          <td>{{this.question}}</td>
+          <td>{{this.options}}</td>
+          <td>{{this.Answer_type}}</td>
+          <td>{{this.yesQuestionIndex}}</td>
+          <td>{{this.noQuestionIndex}}</td>
+          <td>{{this.category_type}}</td>
+        </tr>
+        {{/each}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    <div class="button-container">
+      <button onclick="location.href='/api/dashboard'">Dashboard</button>
+      <button onclick="location.href='/api/logout'">Logout</button>
+    </div>
+  </body>
+</html>
